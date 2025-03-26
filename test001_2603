@@ -1,0 +1,12 @@
+# Указываем базовый образ с нужной версией JDK
+FROM openjdk:11-jre-slim
+
+# Рабочая директория внутри контейнера
+WORKDIR /app
+
+# Копируем файл jar приложения в контейнер
+COPY target/my-app.jar /app/app.jar
+
+# Указываем команду запуска приложения
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
